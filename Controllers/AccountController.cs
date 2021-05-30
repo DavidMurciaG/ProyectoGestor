@@ -45,6 +45,9 @@ namespace ProyectoGestor.Controllers
                 // Guarda datos del usuario en tabla AspNetUsers  
                 var result = await userManager.CreateAsync(user, model.Password);
 
+                //Nuevos usuarios se asignan a User
+                await userManager.AddToRoleAsync(user, "User");
+
                 // Si el usuario se crea, se logea con ese usuario
                 // Y se redirecciona al index de HomeController
                 if (result.Succeeded)
