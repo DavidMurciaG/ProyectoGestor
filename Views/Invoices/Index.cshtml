@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ProyectoGestor.Models.Invoice>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listado de Facturas</h1>
+
+<p>
+    <a asp-action="Create">Crear nueva factura</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumInvoice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsPaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order.NumOrder)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumInvoice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsPaid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order.NumOrder)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Borrar</a> |
+                    <a asp-action="" asp-route-id="@item.ID">Pagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
