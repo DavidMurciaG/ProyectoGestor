@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoGestor.Data;
 using ProyectoGestor.Models;
+using ProyectoGestor.Models.UserViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
