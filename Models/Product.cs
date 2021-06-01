@@ -34,7 +34,7 @@ namespace ProyectoGestor.Models
 
         //Propiedades de navegación
         //public ICollection<Order> Orders { get; set; }
-        public ICollection<OrderProduct> OrderProducts { get; set; }
+        public ICollection<OrderProduct> OrderProduct { get; set; }
 
         public ProductCategory ProductCategory { get; set; }
     }

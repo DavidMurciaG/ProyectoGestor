@@ -22,7 +22,7 @@
                 @Html.DisplayNameFor(model => model.IsPaid)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Order.NumOrder)
+                @Html.DisplayNameFor(model => model.Order.OrderID)
             </th>
             <th></th>
         </tr>
@@ -41,7 +41,7 @@
                     @Html.DisplayFor(modelItem => item.IsPaid)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Order.NumOrder)
+                    @Html.DisplayFor(modelItem => item.Order.OrderID)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |

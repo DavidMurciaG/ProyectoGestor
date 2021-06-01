@@ -93,8 +93,10 @@ namespace ProyectoGestor.Data
             //Pedidos
             var orders = new Order[]
             {
-                new Order{NumOrder="P1", Date=DateTime.Parse("01-09-2020"), ClientID=clients.Single(b=>b.Name=="Oliver").ID}
+                //new Order{NumOrder="P1", Date=DateTime.Parse("01-09-2020"), ClientID=clients.Single(b=>b.Name=="Oliver").ID}
                 //ProductID=products.Single(d=>d.Name=="HELLA 5DA 749 475-601 Bobina de encendido").ID
+                new Order{OrderID=1, Date=DateTime.Parse("01-09-2020"), ClientID=clients.Single(b=>b.Name=="Oliver").ID},
+                new Order{OrderID=2, Date=DateTime.Parse("03-09-2020"), ClientID=clients.Single(b=>b.Name=="Saul").ID},
             };
 
             foreach (Order o in orders)
@@ -106,7 +108,7 @@ namespace ProyectoGestor.Data
             //Facturas
             var invoices = new Invoice[]
             {
-                new Invoice{NumInvoice="F1", Cost=117.33f, IsPaid=false, OrderID=orders.Single(f=>f.NumOrder=="P1").ID}
+                new Invoice{NumInvoice="F1", Cost=117.33f, IsPaid=false, OrderID=1}
             };
 
             foreach (Invoice i in invoices)
@@ -118,8 +120,9 @@ namespace ProyectoGestor.Data
             //PedidosProductos
             var orderProducts = new OrderProduct[]
             {
-                new OrderProduct{ProductID = products.Single(p => p.Name=="HELLA 5DA 749 475-601 Bobina de encendido").ID,
-                OrderID=orders.Single(o=>o.NumOrder=="P1").ID}
+                new OrderProduct{OrderID=1, ProductID = products.Single(p => p.Name=="HELLA 5DA 749 475-601 Bobina de encendido").ID},
+                new OrderProduct{OrderID=2, ProductID = products.Single(p => p.Name=="CONDENSADOR - COD. AFT - 87317242").ID}
+
             };
 
             foreach (OrderProduct op in orderProducts)

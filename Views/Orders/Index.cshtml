@@ -1,42 +1,35 @@
-﻿@model IEnumerable<ProyectoGestor.Models.Order>
+﻿@model ProyectoGestor.Models.OrderProductViewModel.OrderIndexData
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Pedidos";
 }
 
-<h1>Listado de Pedidos</h1>
+<h2>Listado de Pedidos</h2>
 
 <p>
-    <a asp-action="Create">Crear nuevo pedido</a>
+    <a asp-action="Create">Crear un nuevo pedido</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NumOrder)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Client)
-            </th>
-            <th>
-                <!--Html.DisplayNameFor(model => model.Products)-->
-            </th>
-            <!--prueba-->
-            <th>
-                Precio
-            </th>
+            <th>Número de pedido</th>
+            <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Productos</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Orders)
         {
-            <tr>
+            string selectedRow = "";
+            if (item.OrderID == (int?)ViewData["OrderID"])
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
                 <td>
-                    @Html.DisplayFor(modelItem => item.NumOrder)
+                    @Html.DisplayFor(modelItem => item.OrderID)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Date)
@@ -45,16 +38,50 @@
                     @Html.DisplayFor(modelItem => item.Client.FullName)
                 </td>
                 <td>
-                    <!--Html.DisplayFor(modelItem => item.Products)-->
+                    @foreach (var product in item.OrderProduct)
+                    {
+                        @product.Product.Name <br />
+                    }
                 </td>
                 <td>
-                    <!--Html.DisplayFor(modelItem => item.Products)-->
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Borrar</a>
+                    <a asp-action="Index" asp-route-id="@item.OrderID">Ver Productos</a> |
+                    <a asp-action="Edit" asp-route-id="@item.OrderID">Editar</a> |
+                    <!--<a asp-action="Details" asp-route-id="item.OrderID">Details</a> |-->
+                    <a asp-action="Delete" asp-route-id="@item.OrderID">Borrar</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<!--Productos-->
+@if (Model.Products != null)
+{
+    <h3>Productos en el pedido</h3>
+    <table class="table">
+        <tr>
+            <!--<th></th>-->
+            <th>Nombre</th>
+            <th>Categoría</th>
+
+        </tr>
+
+        @foreach (var item in Model.Products)
+        {
+            string selectedRow = "";
+            if (item.ID == (int?)ViewData["ID"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.ProductCategory.Category
+                </td>
+            </tr>
+        }
+
+    </table>
+}

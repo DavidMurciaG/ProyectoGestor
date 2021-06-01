@@ -39,7 +39,7 @@ namespace ProyectoGestor.Data
             modelBuilder.Entity<Product>().ToTable("Product");
 
             modelBuilder.Entity<OrderProduct>().ToTable("OrderProduct");
-            modelBuilder.Entity<OrderProduct>().HasKey(o => new { o.ProductID, o.OrderID });
+            modelBuilder.Entity<OrderProduct>().HasKey(o => new { o.OrderID, o.ProductID });
 
             base.OnModelCreating(modelBuilder);
             //modelBuilder.Seed();
