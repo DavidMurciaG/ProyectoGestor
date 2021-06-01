@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectoGestor.Data;
 using System;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace ProyectoGestor.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly AppDbContext _context;

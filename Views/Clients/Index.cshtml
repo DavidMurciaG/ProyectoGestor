@@ -14,8 +14,8 @@
     <div class="form-actions no-color">
         <p>
             Buscar por nombre o apellido: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
-            <input type="submit" value="Buscar" class="btn btn-light" /> |
-            <a asp-action="Index">Volver a lista completa</a>
+            <input type="submit" value="Buscar" class="btn btn-light" />
+            <a asp-action="Index" class="btn btn-light" style="width:auto">Volver a lista completa</a>
         </p>
     </div>
 </form>
@@ -73,9 +73,11 @@
                     @Html.DisplayFor(modelItem => item.Locality.Name)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID"><i class="fa fa-marker fa-lg"></i>Editar</a> |
+                    <!--<i class="fa fa-marker fa-lg"></i>-->
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary" style="width:auto">Editar <i class="fas fa-edit"></i></a>
                     <!--<a asp-action="Details" asp-route-id="item.ID">Detalles</a> |-->
-                    <a asp-action="Delete" asp-route-id="@item.ID" class="text-danger ml-1">Borrar<i class="fa fa-trash-alt fa-lg"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger" style="width:auto">Borrar <i class="fa fa-trash-alt fa-lg"></i></a>
+                    <!--class="text-danger ml-1"-->
                 </td>
             </tr>
         }

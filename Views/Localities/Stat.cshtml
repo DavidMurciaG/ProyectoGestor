@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProyectoGestor.Models.LocalityStatViewModel.LocalityClientGroup>
+
+@{
+    ViewData["Title"] = "Estadística de Localidades";
+}
+
+<h2>Estadistica de Clientes en cada Localidad</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Localidad
+            </th>
+            <th>
+                Clientes
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @item.ClientCount
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

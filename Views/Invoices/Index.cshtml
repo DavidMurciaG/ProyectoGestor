@@ -7,7 +7,7 @@
 <h1>Listado de Facturas</h1>
 
 <p>
-    <a asp-action="Create">Crear nueva factura</a>
+    <a asp-action="Create" class="btn btn-success" style="width:auto"><i class="far fa-plus-square"></i> Crear nueva factura</a>
 </p>
 <table class="table">
     <thead>
@@ -44,9 +44,9 @@
                     @Html.DisplayFor(modelItem => item.Order.OrderID)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Borrar</a> |
-                    <a asp-action="" asp-route-id="@item.ID">Pagar</a>
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary" style="width:auto">Editar <i class="fas fa-edit"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger" style="width:auto">Borrar <i class="fa fa-trash-alt fa-lg"></i></a>
+                    <a asp-action="" asp-route-id="@item.ID" class="btn btn-warning" style="width:auto">Pagar <i class="fas fa-credit-card"></i></a>
                 </td>
             </tr>
         }
