@@ -109,7 +109,7 @@ namespace ProyectoGestor.Controllers
                     }
                 }
 
-                ModelState.AddModelError(string.Empty, "Error no se puede iniciar sesión comprube los datos introducidos.");
+                ModelState.AddModelError(string.Empty, "Error no se puede iniciar sesión compruebe los datos introducidos.");
             }
 
             return View(model);
@@ -127,7 +127,7 @@ namespace ProyectoGestor.Controllers
             }
             else
             {
-                return Json($"Email {email} ya esta registrado.");
+                return Json($"Usuario {email} ya esta registrado.");
             }
         }
 
